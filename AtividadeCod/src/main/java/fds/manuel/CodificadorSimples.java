@@ -4,14 +4,14 @@ import java.time.LocalDate;
 
 public class CodificadorSimples implements Codificador {
     public String getNome() {
-        return "Codificador Simples";
+        return "Codificador de Código Morse";
     }
 
     public LocalDate getDataCriacao() {
-        return LocalDate.of(2025, 03, 13);
+        return LocalDate.of(2025, 8, 14);
     }
 
-    public int getNivelSeguranca(){
+    public int getNivelSeguranca(){//teria que ver bem isso
         return 1;
     }
 
