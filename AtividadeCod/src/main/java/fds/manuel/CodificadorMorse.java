@@ -47,7 +47,36 @@ public class CodificadorMorse implements Codificador {
         letraMorse.put('z', "––.. ");
         return letraMorse;
     }
-
+public Hashtable<String, Character> morseLetra(){
+        Hashtable<String, Character> morseLetra = new Hashtable<>();
+        morseLetra.put( ".– ",'a');
+        morseLetra.put( "–... ",'b');
+        morseLetra.put( "–.–. ",'c');
+        morseLetra.put( "–.. ",'d');
+        morseLetra.put( ". ",'e');
+        morseLetra.put("..–. ",'f');
+        morseLetra.put("––. ",'g');
+        morseLetra.put(".... ",'h');
+        morseLetra.put(".. ",'i');
+        morseLetra.put(".––– ",'j');
+        morseLetra.put("–.– ",'k');
+        morseLetra.put(".–.. ",'l');
+        morseLetra.put("–– ",'m');
+        morseLetra.put("–. ",'n');
+        morseLetra.put("––– ",'o');
+        morseLetra.put(".––. ",'p');
+        morseLetra.put("––.– ",'q');
+        morseLetra.put(".–. ",'r');
+        morseLetra.put("... ",'s');
+        morseLetra.put("– ",'t');
+        morseLetra.put("..– ",'u');
+        morseLetra.put("...– ",'v');
+        morseLetra.put(".– ",'w');
+        morseLetra.put("–..– ",'x');
+        morseLetra.put("–.–– ",'y');
+        morseLetra.put("––.. ",'z');
+        return morseLetra;
+    }
 
 
     public String codifica(String str) {
