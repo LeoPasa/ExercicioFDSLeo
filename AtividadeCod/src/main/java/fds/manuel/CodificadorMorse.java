@@ -47,53 +47,93 @@ public class CodificadorMorse implements Codificador {
         letraMorse.put('z', "––.. ");
         return letraMorse;
     }
+
 public Hashtable<String, Character> morseLetra(){
         Hashtable<String, Character> morseLetra = new Hashtable<>();
-        morseLetra.put( ".– ",'a');
-        morseLetra.put( "–... ",'b');
-        morseLetra.put( "–.–. ",'c');
-        morseLetra.put( "–.. ",'d');
-        morseLetra.put( ". ",'e');
-        morseLetra.put("..–. ",'f');
-        morseLetra.put("––. ",'g');
-        morseLetra.put(".... ",'h');
-        morseLetra.put(".. ",'i');
-        morseLetra.put(".––– ",'j');
-        morseLetra.put("–.– ",'k');
-        morseLetra.put(".–.. ",'l');
-        morseLetra.put("–– ",'m');
-        morseLetra.put("–. ",'n');
-        morseLetra.put("––– ",'o');
-        morseLetra.put(".––. ",'p');
-        morseLetra.put("––.– ",'q');
-        morseLetra.put(".–. ",'r');
-        morseLetra.put("... ",'s');
-        morseLetra.put("– ",'t');
-        morseLetra.put("..– ",'u');
-        morseLetra.put("...– ",'v');
-        morseLetra.put(".– ",'w');
-        morseLetra.put("–..– ",'x');
-        morseLetra.put("–.–– ",'y');
-        morseLetra.put("––.. ",'z');
+        //minúsculas
+        morseLetra.put(" .–",'a');
+        morseLetra.put(" –...",'b');
+        morseLetra.put(" –.–.",'c');
+        morseLetra.put(" –..",'d');
+        morseLetra.put(" .",'e');
+        morseLetra.put(" ..–.",'f');
+        morseLetra.put(" ––.",'g');
+        morseLetra.put(" ....",'h');
+        morseLetra.put(" ..",'i');
+        morseLetra.put(" .–––",'j');
+        morseLetra.put(" –.–",'k');
+        morseLetra.put(" .–..",'l');
+        morseLetra.put(" ––",'m');
+        morseLetra.put(" –.",'n');
+        morseLetra.put(" –––",'o');
+        morseLetra.put(" .––.",'p');
+        morseLetra.put(" ––.–",'q');
+        morseLetra.put(" .–.",'r');
+        morseLetra.put(" ...",'s');
+        morseLetra.put(" –",'t');
+        morseLetra.put(" ..–",'u');
+        morseLetra.put(" ...– ",'v');
+        morseLetra.put(" .– ",'w');
+        morseLetra.put(" –..–",'x');
+        morseLetra.put(" –.––",'y');
+        morseLetra.put(" ––..",'z');
+
+        //MAIÚSCULA
+        morseLetra.put(".– ",'A');
+        morseLetra.put("–... ",'B');
+        morseLetra.put("–.–. ",'C');
+        morseLetra.put("–.. ",'D');
+        morseLetra.put(". ",'E');
+        morseLetra.put("..–.",'F');
+        morseLetra.put("––. ",'G');
+        morseLetra.put(".... ",'H');
+        morseLetra.put(".. ",'I');
+        morseLetra.put(".––– ",'J');
+        morseLetra.put("–.– ",'K');
+        morseLetra.put(".–.. ",'L');
+        morseLetra.put("–– ",'M');
+        morseLetra.put("–. ",'N');
+        morseLetra.put("––– ",'O');
+        morseLetra.put(".––. ",'P');
+        morseLetra.put("––.– ",'Q');
+        morseLetra.put(".–. ",'R');
+        morseLetra.put("... ",'S');
+        morseLetra.put("– ",'T');
+        morseLetra.put("..– ",'U');
+        morseLetra.put("...– ",'V');
+        morseLetra.put(".– ",'W');
+        morseLetra.put("–..– ",'X');
+        morseLetra.put("–.–– ",'Y');
+        morseLetra.put("––.. ",'Z');
         return morseLetra;
     }
 
 
-    public String codifica(String str) {
+    public String codifica(String str){
         StringBuilder encoded = new StringBuilder();
+        Hashtable<Character, String> codMorse = letraMorse();
 
-        for (char c : str.toCharArray()) {
-            encoded.append((char) (c + 1));
+        for (char c : str.toCharArray()){
+            encoded.append(codMorse.get(c));
         }
-
         return encoded.toString();
     }
 
-    public String decodifica(String str) {
+    public String decodifica(String str){
         StringBuilder encoded = new StringBuilder();
-        
+        StringBuilder morse = new StringBuilder();
+        Hashtable<String, Character> codMorse = morseLetra();
+
         for (char c : str.toCharArray()) {
-            encoded.append((char) (c - 1));
+            morse.append(c);
+            if (c==' '){
+                if(morse.toString() == " ") encoded.append(morse.toString());
+                else{
+                    encoded.append(codMorse.get(morse.toString()));
+                    morse.replace(0, morse.length(), " ");
+                }
+            }
+            
         }
         
         return encoded.toString();
