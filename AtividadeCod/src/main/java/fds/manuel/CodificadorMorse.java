@@ -19,6 +19,7 @@ public class CodificadorMorse implements Codificador {
 
     public Hashtable<Character, String> letraMorse(){
         Hashtable<Character, String> letraMorse = new Hashtable<>();
+        //minúsculas
         letraMorse.put('a', ".– ");
         letraMorse.put('b', "–... ");
         letraMorse.put('c', "–.–. ");
@@ -41,50 +42,78 @@ public class CodificadorMorse implements Codificador {
         letraMorse.put('t', "– ");
         letraMorse.put('u', "..– ");
         letraMorse.put('v', "...– ");
-        letraMorse.put('w', ".– ");
+        letraMorse.put('w', ".–– ");
         letraMorse.put('x', "–..– ");
         letraMorse.put('y', "–.–– ");
         letraMorse.put('z', "––.. ");
+
+        //Maiúsculas
+        letraMorse.put('A', ".– ");
+        letraMorse.put('B', "–... ");
+        letraMorse.put('C', "–.–. ");
+        letraMorse.put('D', "–.. ");
+        letraMorse.put('E', ". ");
+        letraMorse.put('F', "..–. ");
+        letraMorse.put('G', "––. ");
+        letraMorse.put('H', ".... ");
+        letraMorse.put('I', ".. ");
+        letraMorse.put('J', ".––– ");
+        letraMorse.put('K', "–.– ");
+        letraMorse.put('L', ".–.. ");
+        letraMorse.put('M', "–– ");
+        letraMorse.put('N', "–. ");
+        letraMorse.put('O', "––– ");
+        letraMorse.put('P', ".––. ");
+        letraMorse.put('Q', "––.– ");
+        letraMorse.put('R', ".–. ");
+        letraMorse.put('S', "... ");
+        letraMorse.put('T', "– ");
+        letraMorse.put('U', "..– ");
+        letraMorse.put('V', "...– ");
+        letraMorse.put('W', ".–– ");
+        letraMorse.put('X', "–..– ");
+        letraMorse.put('Y', "–.–– ");
+        letraMorse.put('Z', "––.. ");
+        letraMorse.put(' ', "_ ");
         return letraMorse;
     }
 
 public Hashtable<String, Character> morseLetra(){
         Hashtable<String, Character> morseLetra = new Hashtable<>();
-        //minúsculas
-        morseLetra.put(" .–",'a');
-        morseLetra.put(" –...",'b');
-        morseLetra.put(" –.–.",'c');
-        morseLetra.put(" –..",'d');
-        morseLetra.put(" .",'e');
-        morseLetra.put(" ..–.",'f');
-        morseLetra.put(" ––.",'g');
-        morseLetra.put(" ....",'h');
-        morseLetra.put(" ..",'i');
-        morseLetra.put(" .–––",'j');
-        morseLetra.put(" –.–",'k');
-        morseLetra.put(" .–..",'l');
-        morseLetra.put(" ––",'m');
-        morseLetra.put(" –.",'n');
-        morseLetra.put(" –––",'o');
-        morseLetra.put(" .––.",'p');
-        morseLetra.put(" ––.–",'q');
-        morseLetra.put(" .–.",'r');
-        morseLetra.put(" ...",'s');
-        morseLetra.put(" –",'t');
-        morseLetra.put(" ..–",'u');
-        morseLetra.put(" ...– ",'v');
-        morseLetra.put(" .– ",'w');
-        morseLetra.put(" –..–",'x');
-        morseLetra.put(" –.––",'y');
-        morseLetra.put(" ––..",'z');
-
+        /*minúsculas
+        morseLetra.put(".– ",'a');
+        morseLetra.put("–... ",'b');
+        morseLetra.put("–.–. ",'c');
+        morseLetra.put("–.. ",'d');
+        morseLetra.put(". ",'e');
+        morseLetra.put("..–. ",'f');
+        morseLetra.put("––. ",'g');
+        morseLetra.put(".... ",'h');
+        morseLetra.put(".. ",'i');
+        morseLetra.put(".––– ",'j');
+        morseLetra.put("–.– ",'k');
+        morseLetra.put(".–.. ",'l');
+        morseLetra.put("–– ",'m');
+        morseLetra.put("–. ",'n');
+        morseLetra.put("––– ",'o');
+        morseLetra.put(".––. ",'p');
+        morseLetra.put("––.– ",'q');
+        morseLetra.put(".–. ",'r');
+        morseLetra.put("... ",'s');
+        morseLetra.put("– ",'t');
+        morseLetra.put("..– ",'u');
+        morseLetra.put("...– ",'v');
+        morseLetra.put(".––  ",'w');
+        morseLetra.put("–..– ",'x');
+        morseLetra.put("–.–– ",'y');
+        morseLetra.put("––.. ",'z');*/
         //MAIÚSCULA
         morseLetra.put(".– ",'A');
         morseLetra.put("–... ",'B');
         morseLetra.put("–.–. ",'C');
         morseLetra.put("–.. ",'D');
         morseLetra.put(". ",'E');
-        morseLetra.put("..–.",'F');
+        morseLetra.put("..–. ",'F');
         morseLetra.put("––. ",'G');
         morseLetra.put(".... ",'H');
         morseLetra.put(".. ",'I');
@@ -101,10 +130,11 @@ public Hashtable<String, Character> morseLetra(){
         morseLetra.put("– ",'T');
         morseLetra.put("..– ",'U');
         morseLetra.put("...– ",'V');
-        morseLetra.put(".– ",'W');
+        morseLetra.put(".–– ",'W');
         morseLetra.put("–..– ",'X');
         morseLetra.put("–.–– ",'Y');
         morseLetra.put("––.. ",'Z');
+        morseLetra.put("_ ",' ');
         return morseLetra;
     }
 
@@ -114,7 +144,7 @@ public Hashtable<String, Character> morseLetra(){
         Hashtable<Character, String> codMorse = letraMorse();
 
         for (char c : str.toCharArray()){
-            encoded.append(codMorse.get(c));
+                encoded.append(codMorse.get(c));
         }
         return encoded.toString();
     }
@@ -127,11 +157,8 @@ public Hashtable<String, Character> morseLetra(){
         for (char c : str.toCharArray()) {
             morse.append(c);
             if (c==' '){
-                if(morse.toString() == " ") encoded.append(morse.toString());
-                else{
                     encoded.append(codMorse.get(morse.toString()));
-                    morse.replace(0, morse.length(), " ");
-                }
+                    morse.setLength(0);
             }
             
         }
